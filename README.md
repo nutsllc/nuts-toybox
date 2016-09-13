@@ -1,6 +1,6 @@
-# Nuts Toybox
+# Toybox 
 
-Docker containers management by dynamic proxy.
+The Toybox is a simple and an easy to manage applications on Docker.
 
 ## Requirements
 
@@ -9,13 +9,13 @@ Docker containers management by dynamic proxy.
 
 ## Getting started
 
-1. Clone this repo.:
+(1) Clone this repo.:
 
 ```
 $ git clone https://github.com/ontheroadjp/docker-toybox.git
 ```
 
-2. Set environment variables into ``~/.bash_profile``:
+(2) Set environment variables into ``~/.bash_profile``:
 
 ```bash
 export TOYBOX_HOME=/path/to/clone/docker-toybox
@@ -24,13 +24,13 @@ export PATH=$TOYBOX_HOME:$PATH
 
 ## Usage
 
-1. Start proxy container:
+(1) Start proxy container:
 
 ```bash
 $ toybox proxy new
 ```
 
-2. Start application:
+(2) Start application:
 
 ```bash
 $ toybox <application> new
@@ -40,7 +40,7 @@ You can select application from the list below:
 
 ``apache2``, ``gitbucket``, ``lychee``, ``nginx``, ``owncloud``, ``php5``, ``php7``
 
-3. exec ``toybox`` command with no arguments and no any options to check an application status:
+(3) exec ``toybox`` command with no arguments and no any options to check an application status:
 
 ```bash
 $ toybox 
@@ -60,7 +60,7 @@ ID        URL                                       Application              Sta
 8954      http://owncloud.docker-toybox.com         owncloud:9.0.2           running
 ```
 
-4. Open your web browser and access URL 
+(4) Open your web browser and access URL 
 
 ## Manage Application
 
