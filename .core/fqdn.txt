@@ -1,0 +1,7 @@
+apache2.docker-toybox.com
+nginx.docker-toybox.com
+php5.docker-toybox.com
+php7.docker-toybox.com
+gitbucket.docker-toybox.com
+lychee.docker-toybox.com
+owncloud.docker-toybox.com
