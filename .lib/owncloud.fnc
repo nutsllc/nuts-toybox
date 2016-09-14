@@ -69,8 +69,13 @@ function __init() {
     mkdir -p ${app_path}/data/owncloud/config
     mkdir -p ${app_path}/data/owncloud/data
 
-    uid=$(cat /etc/passwd | grep ^$(whoami) | cut -d : -f3)
-    gid=$(cat /etc/group | grep ^$(whoami) | cut -d: -f3)
+    if [ "$(uname)" == 'Darwin' ]; then 
+        uid=${USER}
+        gid=${GROUPS}
+    elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+        uid=$(cat /etc/passwd | grep ^$(whoami) | cut -d : -f3)
+        gid=$(cat /etc/group | grep ^$(whoami) | cut -d: -f3)
+    fi
     
     cat <<-EOF > ${compose_file}
 ${containers[0]}:
