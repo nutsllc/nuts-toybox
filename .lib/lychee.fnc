@@ -18,16 +18,16 @@ images=(
    nutsllc/toybox-lychee:${lychee_version}
    nutsllc/toybox-mariadb:${mariadb_version}
 )
-declare -A components=(
-    ["${project_name}_${containers[0]}_1"]="apache2 php lychee"
-    ["${project_name}_${containers[1]}_1"]="mariadb"
-)
-declare -A component_version=(
-    ['apache2']="${apache2_version}"
-    ['php']="${php_version}"
-    ['lychee']="${lychee_version}"
-    ['mariadb']="${mariadb_version}"
-)
+#declare -A components=(
+#    ["${project_name}_${containers[0]}_1"]="apache2 php lychee"
+#    ["${project_name}_${containers[1]}_1"]="mariadb"
+#)
+#declare -A component_version=(
+#    ['apache2']="${apache2_version}"
+#    ['php']="${php_version}"
+#    ['lychee']="${lychee_version}"
+#    ['mariadb']="${mariadb_version}"
+#)
 
 uid=""
 gid=""

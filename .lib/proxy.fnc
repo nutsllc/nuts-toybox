@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 nginx_version=1.11
 app_version=${nginx_version}
@@ -13,14 +13,14 @@ images=(
 )
     #jwilder/docker-gen
 
-declare -A components=(
-    ["${project_name}_${containers[0]}_1"]="nginx"
-    ["${project_name}_${containers[1]}_1"]="docker-gen"
-)
-declare -A component_version=(
-    ['nginx']=${nginx_version}
-    ['docker-gen']="n/a"
-)
+#declare -A components=(
+#    ["${project_name}_${containers[0]}_1"]="nginx"
+#    ["${project_name}_${containers[1]}_1"]="docker-gen"
+#)
+#declare -A component_version=(
+#    ['nginx']=${nginx_version}
+#    ['docker-gen']="n/a"
+#)
 
 function __post_run() {
     echo "complete!"

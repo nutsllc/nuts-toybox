@@ -9,12 +9,12 @@ containers=(
 images=(
     nutsllc/toybox-nginx:${nginx_version}
 )
-declare -A components=(
-    ["${project_name}_${containers[0]}_1"]="nginx"
-)
-declare -A component_version=(
-    ['nginx']="${nginx_version}"
-)
+#declare -A components=(
+#    ["${project_name}_${containers[0]}_1"]="nginx"
+#)
+#declare -A component_version=(
+#    ['nginx']="${nginx_version}"
+#)
 
 uid=""
 gid=""

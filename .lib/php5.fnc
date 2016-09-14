@@ -16,20 +16,20 @@ images=(
     nutsllc/toybox-php:${php_version}
     nutsllc/toybox-mariadb:${mariadb_version}
 )
-declare -A components=(
-    ["${project_name}_${containers[0]}_1"]="apache2 php"
-    ["${project_name}_${containers[1]}_1"]="mariadb"
-)
-declare -A component_version=(
-    ['apache2']="${apache2_version}"
-    ['php']="${php_version}"
-    ['mariadb']="${mariadb_version}"
-)
-declare -A params=(
-    ['mariadb_mysql_root_password']=${db_root_password}
-    ['mariadb_mariadb_alias']=${mariadb_alias}
-    ['mariadb_term']="xterm"
-)
+#declare -A components=(
+#    ["${project_name}_${containers[0]}_1"]="apache2 php"
+#    ["${project_name}_${containers[1]}_1"]="mariadb"
+#)
+#declare -A component_version=(
+#    ['apache2']="${apache2_version}"
+#    ['php']="${php_version}"
+#    ['mariadb']="${mariadb_version}"
+#)
+#declare -A params=(
+#    ['mariadb_mysql_root_password']=${db_root_password}
+#    ['mariadb_mariadb_alias']=${mariadb_alias}
+#    ['mariadb_term']="xterm"
+#)
 
 uid=""
 gid=""
