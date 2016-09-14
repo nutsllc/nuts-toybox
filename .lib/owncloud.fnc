@@ -26,40 +26,34 @@ images=(
    nutsllc/toybox-mariadb
    nutsllc/toybox-redis
 )
-declare -A components=(
-    ["${project_name}_${containers[0]}_1"]="apache2 php owncloud"
-    ["${project_name}_${containers[1]}_1"]="mariadb"
-    ["${project_name}_${containers[2]}_1"]="redis"
-)
-declare -A component_version=(
-    ['apache2']="${apache2_version}"
-    ['php']="${php_version}"
-    ['owncloud']="${owncloud_version}"
-    ['mariadb']="${mariadb_version}"
-    ['redis']="${redis_version}"
-)
-declare -A params=(
-    ['owncloud_user']=${owncloud_uer}
-    ['owncloud_password']=${owncloud_password}
-    ['owncloud_database']=${database}
-    ['mariadb_mysql_root_password']=${db_root_password}
-    ['mariadb_mysql_database']=${db_name}
-    ['mariadb_mysql_user']=${db_user}
-    ['mariadb_mysql_password']=${db_user_password}
-    ['mariadb_mariadb_alias']=${mariadb_alias}
-    ['mariadb_term']="xterm"
-)
+#declare -A components=(
+#    ["${project_name}_${containers[0]}_1"]="apache2 php owncloud"
+#    ["${project_name}_${containers[1]}_1"]="mariadb"
+#    ["${project_name}_${containers[2]}_1"]="redis"
+#)
+#declare -A component_version=(
+#    ['apache2']="${apache2_version}"
+#    ['php']="${php_version}"
+#    ['owncloud']="${owncloud_version}"
+#    ['mariadb']="${mariadb_version}"
+#    ['redis']="${redis_version}"
+#)
+#declare -A params=(
+#    ['owncloud_user']=${owncloud_uer}
+#    ['owncloud_password']=${owncloud_password}
+#    ['owncloud_database']=${database}
+#    ['mariadb_mysql_root_password']=${db_root_password}
+#    ['mariadb_mysql_database']=${db_name}
+#    ['mariadb_mysql_user']=${db_user}
+#    ['mariadb_mysql_password']=${db_user_password}
+#    ['mariadb_mariadb_alias']=${mariadb_alias}
+#    ['mariadb_term']="xterm"
+#)
 
 uid=""
 gid=""
 
 proto="http"
-
-#function __build() {
-#    docker build -t ${images[0]}:${owncloud_version} $TOYBOX_HOME/src/owncloud/${owncloud_version}
-#    docker build -t ${images[1]}:${mariadb_version} $TOYBOX_HOME/src/mariadb/${mariadb_version}
-#    docker build -t ${images[2]}:${redis_version} $TOYBOX_HOME/src/redis/${redis_version}
-#}
 
 function __post_run() {
     http_status=$(curl -kLI ${proto}://${fqdn} -o /dev/null -w '%{http_code}\n' -s)
@@ -70,11 +64,6 @@ function __post_run() {
 }
 
 function __init() {
-
-    #__build || {
-    #    echo "build error(${application})"
-    #    exit 1
-    #}
 
     mkdir -p ${app_path}/bin
     mkdir -p ${app_path}/data/owncloud/config
