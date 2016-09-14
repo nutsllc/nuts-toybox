@@ -13,7 +13,7 @@ containers=(
     ${fqdn}-${application}-db
 )
 images=(
-    nutsllc/toybox-php:${php_version}
+    nutsllc/toybox-php:${php_version}-apache
     nutsllc/toybox-mariadb:${mariadb_version}
 )
 #declare -A components=(
@@ -41,8 +41,13 @@ function __init() {
     mkdir -p ${app_path}/data/apache2/conf
     mkdir -p ${app_path}/data/php
 
-    uid=$(cat /etc/passwd | grep ^$(whoami) | cut -d : -f3)
-    gid=$(cat /etc/group | grep ^$(whoami) | cut -d: -f3)
+    if [ "$(uname)" == 'Darwin' ]; then 
+        uid=${USER}
+        gid=${GROUPS}
+    elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+        uid=$(cat /etc/passwd | grep ^$(whoami) | cut -d : -f3)
+        gid=$(cat /etc/group | grep ^$(whoami) | cut -d: -f3)
+    fi
     
     cat <<-EOF > ${compose_file}
 ${containers[0]}:

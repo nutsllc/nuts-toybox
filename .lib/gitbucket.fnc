@@ -42,23 +42,18 @@ declare -A component_version=(
 uid=""
 gid=""
 
-#function __build() {
-#    docker build -t ${images[0]}:${gitbucket_version} $TOYBOX_HOME/src/${application}/${gitbucket_version}
-#    docker build -t ${images[1]}:${mariadb_version} $TOYBOX_HOME/src/mariadb/${mariadb_version}
-#}
-
 function __init() {
-
-    #__build || {
-    #    echo "build error(${application})"
-    #    exit 1
-    #}
 
     mkdir -p ${app_path}/bin
     mkdir -p ${app_path}/data/gitbucket
 
-    uid=$(cat /etc/passwd | grep ^$(whoami) | cut -d : -f3)
-    gid=$(cat /etc/group | grep ^$(whoami) | cut -d: -f3)
+    if [ "$(uname)" == 'Darwin' ]; then 
+        uid=${USER}
+        gid=${GROUPS}
+    elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+        uid=$(cat /etc/passwd | grep ^$(whoami) | cut -d : -f3)
+        gid=$(cat /etc/group | grep ^$(whoami) | cut -d: -f3)
+    fi
     
     cat <<-EOF > ${compose_file}
 ${containers[0]}:
