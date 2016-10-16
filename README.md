@@ -18,7 +18,7 @@ $ git clone https://github.com/ontheroadjp/docker-toybox.git
 (2) Set environment variables into ``~/.bash_profile``:
 
 ```bash
-export TOYBOX_HOME=/path/to/clone/docker-toybox
+export TOYBOX_HOME=/path/to/clone/toybox
 export PATH=$TOYBOX_HOME:$PATH
 ```
 
