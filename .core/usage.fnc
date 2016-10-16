@@ -15,7 +15,7 @@ Option:
 Application:
     apache2             Web-Application: Http web server
     nginx               Web-Application: Http web server
-    proxy               Web-Application: Http dinamic proxy server based on nginx 
+    proxy               Web-Application: Http dynamic proxy server based on nginx 
     php5                Web-Application: LAMP(Apache2 + MariaDB + PHP5)
     php7                Web-Application: LAMP(Apache2 + MariaDB + PHP7)
     wordpress           Web-Application: CMS 
